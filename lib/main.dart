@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:salon_app_ui/screens/main_screen.dart';
 import 'package:salon_app_ui/utils/constants.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() {
+  usePathUrlStrategy();
   runApp(
     DevicePreview(
       backgroundColor: Colors.black, // const Color.fromARGB(255, 1, 61, 38),
