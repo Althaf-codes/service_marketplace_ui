@@ -1,17 +1,25 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:salon_app_ui/screens/main_screen.dart';
 import 'package:salon_app_ui/utils/constants.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   usePathUrlStrategy();
+  await GoogleFonts.pendingFonts([
+    GoogleFonts.robotoTextTheme(),
+    GoogleFonts.bebasNeueTextTheme(),
+  ]);
+
   runApp(
     DevicePreview(
       backgroundColor: Colors.black, // const Color.fromARGB(255, 1, 61, 38),
       enabled: true,
-      defaultDevice: Devices.ios.iPhone13ProMax,
+      defaultDevice: Devices.ios.iPhone12Mini,
       isToolbarVisible: true,
       availableLocales: [const Locale('en', 'US')],
       tools: const [
@@ -54,17 +62,16 @@ void main() {
         Devices.android.samsungGalaxyNote20Ultra, // Premium
         Devices.android.onePlus8Pro, // Different aspect ratio
         Devices.android.sonyXperia1II, // Tall screen
-        Devices.android.smallPhone,
+        // Devices.android.smallPhone,
 
         // Popular iOS Devices
-        Devices.ios.iPhoneSE, // Small screen
+        // Devices.ios.iPhoneSE, // Small screen
         Devices.ios.iPhone12, // Standard size
         Devices.ios.iPhone12Mini, // Compact
         Devices.ios.iPhone12ProMax, // Large
         Devices.ios.iPhone13, // Latest standard
         Devices.ios.iPhone13ProMax, // Latest large
         Devices.ios.iPhone13Mini, // Latest compact
-        // Devices.ios.iPhoneSE, // Budget option
       ],
 
       // Your app's entry point

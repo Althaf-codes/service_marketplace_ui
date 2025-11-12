@@ -26,6 +26,19 @@ class _MainScreenState extends State<MainScreen> {
     ChatScreen(),
     ProfileScreen(),
   ];
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _preloadResources();
+  }
+
+  Future<void> _preloadResources() async {
+    if (!context.mounted) return;
+
+    await precacheImage(AssetImage(AppConstants.bannerImg), context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
